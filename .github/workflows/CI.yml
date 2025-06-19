@@ -4,22 +4,22 @@ on:
   push:
     branches: ["main"]
 
-    jobs:
-      builds:
-        runs-on: ubuntu-latest
+jobs:
+  builds:
+    runs-on: ubuntu-latest
 
-        steps:
+    steps:
 
-          - name: Checkout SCM
-            uses: actions/checkout@v4
+      - name: Checkout SCM
+        uses: actions/checkout@v4
 
-          - name: Set up Python
-            uses: actions/setup-python@v5
-            with:
-              python-version: '3.13' 
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13' 
 
-          - name: Install pytest
-            run: pip install pytest flask-testing
+      - name: Install pytest
+        run: pip install pytest flask-testing
 
-          - name: Run unit test
-            run: pytest
+      - name: Run unit test
+        run: pytest
